@@ -9,7 +9,7 @@ const Country = (props) => {
     useEffect(() => {
         let isMounted = false
         axios
-        .get(`http://api.weatherstack.com/current?access_key=335188ef8b3e043ba8a1669584216372&query=${props.country.capital}`)
+        .get(`https://api.weatherstack.com/current?access_key=335188ef8b3e043ba8a1669584216372&query=${props.country.capital}`)
         .then((response => {
             if(!isMounted) {
             setWeather(response.data)}
