@@ -48,8 +48,7 @@ const Country = (props) => {
                         </ul>
                     <img src={props.country.flag} alt="Flag" width="50%" />
                     <h3 style={{marginTop:'20px'}}>Weather in {props.country.capital}</h3>
-                    <strong>Date and Time: </strong> <span>{weather.location.localtime}</span><br />
-                    <strong>Temparature: </strong>
+                    {/*<strong>Date and Time: </strong><span>{weather.location.localtime}</span><br />*/}
                         <span>{weather.current.temperature} Celsius</span><br />
                     <img src={weather.current.weather_icons} alt="Pic"/><br />
                     <strong>Wind: </strong>
