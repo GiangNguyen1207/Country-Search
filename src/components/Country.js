@@ -12,8 +12,7 @@ const Country = (props) => {
         .get(`http://api.weatherstack.com/current?access_key=335188ef8b3e043ba8a1669584216372&query=${props.country.capital}`)
         .then((response => {
             if(!isMounted) {
-            setWeather(response.data)
-            setShowDetails(true)}
+            setWeather(response.data)}
         }))
         return () => {isMounted=true}
     }, [props.country.capital])
