@@ -1,22 +1,105 @@
-.App {
-  text-align: center;
+body {
+    background-color: #94CECA;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    padding-bottom: 55%;
 }
 
-.App-logo {
-  height: 40vmin;
+.header {
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 80px;
+    background-color: #2F416D;
+    text-align: center;
+    color: #F8F8F8;
+    line-height: 80px;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-link {
-  color: #09d3ac;
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.input-container {
+    margin-top: 110px;
+}
+
+.input-country {
+    text-align: center;
+    color: #2F416D;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.input-country input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid #2F416D;
+    border-radius: 128345px ;
+    height: 50px;
+    line-height: 25px;
+    width: 50%;
+    padding: 0 20px;
+}
+
+.input-country input:focus {
+    outline: none;
+}
+
+.result-container {
+    margin: 2% auto;
+    width: 50%;
+}
+
+.country-list button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid #5D1451;
+    border-radius: 12435px;
+    padding: 0 10px;
+    height: 30px;
+    margin: 5px 10px 20px 0;
+}
+
+.country-list button:hover {
+    color: #F8F8F8;
+    background-color: #5D1451
+}
+
+.country-list button:focus {
+    outline: none;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #2F416D;
+    color: #F8F8F8;
+    text-align: center;
+    font-size: 18px;
+    padding: 12px 0;
+}
+
+.footer a {
+    color: #F8F8F8;
+    text-decoration: none;
 }
