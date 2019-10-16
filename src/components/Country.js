@@ -12,7 +12,8 @@ const Country = (props) => {
         .get(`http://api.weatherstack.com/current?access_key=335188ef8b3e043ba8a1669584216372&query=${props.country.capital}`)
         .then((response => {
             if(!isMounted) {
-            setWeather(response.data)}
+            setWeather(response.data)
+            setShowDetails(true)}
         }))
         return () => {isMounted=true}
     }, [props.country.capital])
@@ -21,7 +22,7 @@ const Country = (props) => {
         setShowDetails(true)
     }
 
-    const buttonUnShow = () => {
+    const buttonHide = () => {
         setShowDetails(false)
     }
 
@@ -30,7 +31,7 @@ const Country = (props) => {
             <li style={{listStyle: 'none'}}>
                 <p style={{marginBottom:'0', marginTop:'10px', fontWeight:'bold'}}>{props.country.name}</p>
                 <button onClick={()=>buttonShow()}>Show</button>
-                <button onClick={()=>buttonUnShow()}>Unshow</button>
+                <button onClick={()=>buttonHide()}>Hide</button>
             </li>
             {showDetails ? 
                 <div>
@@ -48,7 +49,7 @@ const Country = (props) => {
                         </ul>
                     <img src={props.country.flag} alt="Flag" width="50%" />
                     <h3 style={{marginTop:'20px'}}>Weather in {props.country.capital}</h3>
-                    {/*<strong>Date and Time: </strong><span>{weather.location.localtime}</span><br />*/}
+                    <strong>Date and Time: </strong><span>{weather.location.localtime}</span><br />
                         <span>{weather.current.temperature} Celsius</span><br />
                     <img src={weather.current.weather_icons} alt="Pic"/><br />
                     <strong>Wind: </strong>
