@@ -9,23 +9,27 @@ const OneCountry = (props) => {
     useEffect(() => {
         let isMounted = false
         axios
-        .get(`https://api.weatherstack.com/current?access_key=335188ef8b3e043ba8a1669584216372&query=${props.country.capital}`)
+        .get(`https://api.weatherbit.io/v2.0/current?city=${props.country.capital}&country=${props.country.alpha2Code}&key=56ee134f7635482abee590fc671e7dbb`)
         .then((response => {
             if(!isMounted) {
             setWeather(response.data)
             setLoaded(true)}
         }))
         return () => {isMounted=true}
-    }, [props.country.capital])
+    }, [props.country.capital, props.country.alpha2Code])
 
     return(
         <div className='country-list'>
             {loaded ?
                 <div>
-                    <h2>{props.country.name}</h2>
-                    <strong>Capital: </strong><span>{props.country.capital}</span><br />
-                    <strong>Population: </strong><span>{props.country.population}</span><br />
-                    <strong>Languages: </strong>
+                   <h2>{props.country.name}</h2>
+                    <strong>Capital: </strong>
+                        <span>{props.country.capital}</span><br />
+                    <strong>Population: </strong>
+                        <span>{props.country.population}</span><br />
+                    <strong>Timezone: </strong>
+                        <span>{props.country.timezones}</span><br />
+                    <strong>Languages: </strong> 
                         <ul>
                             {props.country.languages && props.country.languages.map((language,index) =>
                                 <Language 
@@ -36,13 +40,18 @@ const OneCountry = (props) => {
                         </ul>
                     <img src={props.country.flag} alt="Flag" width="50%" />
                     <h3 style={{marginTop:'20px'}}>Weather in {props.country.capital}</h3>
-                    {/*<strong>Date and Time: </strong> <span>{weather.location.localtime}</span><br />*/}
                     <strong>Temparature: </strong>
-                        <span>{weather.current.temperature} Celsius</span><br />
-                    <img src={weather.current.weather_icons} alt="Pic"/><br />
+                        <span>{weather.data[0].temp} Celsius</span><br />
+                    <img src = {`https://www.weatherbit.io/static/img/icons/${weather.data[0].weather.icon}.png`} alt='pic'/><br />
+                    <strong>Description: </strong>
+                        <span>{weather.data[0].weather.description}</span><br />
+                    <strong>Sunrise: </strong>
+                        <span>{weather.data[0].sunrise}</span><br />
+                    <strong>Sunset: </strong>
+                        <span>{weather.data[0].sunset}</span><br />
                     <strong>Wind: </strong>
-                        <span>{weather.current.wind_speed} kph </span>
-                            <span>Direction {weather.current.wind_dir}</span>
+                        <span>{weather.data[0].wind_spd} kph </span>
+                            <span>Direction {weather.data[0].wind_cdir}</span>
                 </div>
             : null}
         </div>
