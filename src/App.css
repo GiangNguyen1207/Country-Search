@@ -4,7 +4,7 @@ body {
     background-repeat: no-repeat;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    padding-bottom: 20%;
+    padding-bottom: 150px;
 }
 
 .header {
@@ -100,7 +100,7 @@ body {
     margin: 80px 0;
     background-color: rgba(0,0,0, 0.5);
   }
-  
+
 .popup_inner {
     position: absolute;
     width: 50%;

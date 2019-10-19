@@ -23,6 +23,7 @@ const OneCountry = (props) => {
             {loaded ?
                 <div>
                    <h2>{props.country.name}</h2>
+                   <img src={props.country.flag} alt="Flag" width="50%" /><br /><br />
                     <strong>Capital: </strong>
                         <span>{props.country.capital}</span><br />
                     <strong>Population: </strong>
@@ -38,7 +39,6 @@ const OneCountry = (props) => {
                                 />
                             )}
                         </ul>
-                    <img src={props.country.flag} alt="Flag" width="50%" />
                     <h3 style={{marginTop:'20px'}}>Weather in {props.country.capital}</h3>
                     <strong>Temparature: </strong>
                         <span>{weather.data[0].temp} Celsius</span><br />
