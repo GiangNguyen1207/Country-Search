@@ -27,7 +27,7 @@ const Countries = (props) => {
     } else if(props.countries.length > 10) {
             if(props.input === '') {
                 return props.show === false
-            } else return <p>Too many matches</p>
+            } else return <p style={{paddingLeft:'40px'}}>Too many matches</p>
     } else return null
 }
 
