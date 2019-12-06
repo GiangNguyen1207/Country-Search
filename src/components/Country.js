@@ -10,7 +10,7 @@ const Country = (props) => {
     useEffect(() => {
         let isMounted = false
         axios
-        .get(`https://api.weatherbit.io/v2.0/current?city=${props.country.capital}&country=${props.country.alpha2Code}&key=56ee134f7635482abee590fc671e7dbb`)
+        .get(`http://api.weatherstack.com/current?access_key=335188ef8b3e043ba8a1669584216372&query=${props.country.capital}`)
         .then((response => {
             if(!isMounted) {
             setWeather(response.data)}
@@ -37,7 +37,7 @@ const Country = (props) => {
                     key={props.country.numericCode}
                     country={props.country}
                     weather={weather}
-                    buttonHide = {buttonHide}
+                    buttonHide= {buttonHide}
                 />
             : null    
             }

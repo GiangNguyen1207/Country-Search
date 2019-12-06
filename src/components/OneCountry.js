@@ -9,7 +9,7 @@ const OneCountry = (props) => {
     useEffect(() => {
         let isMounted = false
         axios
-        .get(`https://api.weatherbit.io/v2.0/current?city=${props.country.capital}&country=${props.country.alpha2Code}&key=56ee134f7635482abee590fc671e7dbb`)
+        .get(`http://api.weatherstack.com/current?access_key=335188ef8b3e043ba8a1669584216372&query=${props.country.capital}`)
         .then((response => {
             if(!isMounted) {
             setWeather(response.data)
@@ -41,17 +41,17 @@ const OneCountry = (props) => {
                         </ul>
                     <h3 style={{marginTop:'20px'}}>Weather in {props.country.capital}</h3>
                     <strong>Temparature: </strong>
-                        <span>{weather.data[0].temp} Celsius</span><br />
-                    <img src = {`https://www.weatherbit.io/static/img/icons/${weather.data[0].weather.icon}.png`} alt='pic'/><br />
-                    <strong>Description: </strong>
-                        <span>{weather.data[0].weather.description}</span><br />
-                    <strong>Sunrise: </strong>
-                        <span>{weather.data[0].sunrise}</span><br />
-                    <strong>Sunset: </strong>
-                        <span>{weather.data[0].sunset}</span><br />
-                    <strong>Wind: </strong>
-                        <span>{weather.data[0].wind_spd} kph </span>
-                            <span>Direction {weather.data[0].wind_cdir}</span>
+                            <span>{weather.current.temperature} Celsius</span><br />
+                        <img src={weather.current.weather_icons} alt='pic'/><br />
+                        <strong>Description: </strong>
+                            <span>{weather.current.weather_descriptions}</span><br />
+                        <strong>Localtime </strong>
+                            <span>{weather.location.localtime}</span><br />
+                        <strong>Wind: </strong>
+                            <span>{weather.current.wind_speed} kph </span>
+                                <span>Direction {weather.current.wind_dir}</span><br />
+                        <strong>Humidity: </strong>
+                            <span>{weather.current.humidity}</span><br /><br />
                 </div>
             : null}
         </div>

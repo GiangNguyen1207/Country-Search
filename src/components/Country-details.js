@@ -26,17 +26,17 @@ const CountryDetails = (props) => {
                             </ul>
                         <h4 style={{marginTop:'20px'}}>Weather in {props.country.capital}</h4>
                         <strong>Temparature: </strong>
-                            <span>{props.weather.data[0].temp} Celsius</span><br />
-                        <img src = {`https://www.weatherbit.io/static/img/icons/${weather.data[0].weather.icon}.png`} alt='pic'/><br />
+                            <span>{weather.current.temperature} Celsius</span><br />
+                        <img src={weather.current.weather_icons} alt='pic'/><br />
                         <strong>Description: </strong>
-                            <span>{weather.data[0].weather.description}</span><br />
-                        <strong>Sunrise: </strong>
-                            <span>{weather.data[0].sunrise}</span><br />
-                        <strong>Sunset: </strong>
-                            <span>{weather.data[0].sunset}</span><br />
+                            <span>{weather.current.weather_descriptions}</span><br />
+                        <strong>Localtime </strong>
+                            <span>{weather.location.localtime}</span><br />
                         <strong>Wind: </strong>
-                            <span>{weather.data[0].wind_spd} kph </span>
-                                <span>Direction {weather.data[0].wind_cdir}</span><br /><br />
+                            <span>{weather.current.wind_speed} kph </span>
+                                <span>Direction {weather.current.wind_dir}</span><br />
+                        <strong>Humidity: </strong>
+                            <span>{weather.current.humidity}</span><br /><br />
                     <button onClick={props.buttonHide}>Hide</button>
                 </div>
             </div>
